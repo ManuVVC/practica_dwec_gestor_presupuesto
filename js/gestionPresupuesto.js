@@ -53,10 +53,32 @@ function listarGastos(){
     return gastos;
 }
 
-function anyadirGasto(){}
-function borrarGasto(){}
-function calcularTotalGastos(){}
-function calcularBalance(){}
+function anyadirGasto(nuevoGasto){
+    nuevoGasto.id=idGasto;
+    idGasto++;
+    gastos.push(nuevoGasto)
+}
+
+function borrarGasto(borraGasto){
+    let id = gastos.findIndex(item => item.id == borraGasto);
+    
+    if (id >= 0)
+    {
+        gastos.splice(id, 1);
+    }    
+}
+
+function calcularTotalGastos(){
+    let total=0;
+    for (let gasto of gastos){
+        total+= gasto.valor;
+    }
+    return total;
+}
+function calcularBalance(){
+    let balance = presupuesto - calcularTotalGastos();
+    return balance;
+}
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
 // Las funciones y objetos deben tener los nombres que se indican en el enunciado
 // Si al obtener el código de una práctica se genera un conflicto, por favor incluye todo el código que aparece aquí debajo
