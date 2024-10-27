@@ -2,11 +2,12 @@
 // TODO: Crear las funciones, objetos y variables indicadas en el enunciado
 
 // TODO: Variable global
-let presupuesto = 0;
+
+var presupuesto = 0;
 
 function actualizarPresupuesto(valor) {
     // TODO
-        if(isNaN(valor)){
+    if(isNaN(valor)){
         console.log("El valor indicado no es un número.");
         return  -1;
     } else if (valor<0) {
@@ -19,8 +20,8 @@ function actualizarPresupuesto(valor) {
 
 function mostrarPresupuesto() {
     // TODO
-    let texto= 'Tu presupuesto actual es de ${presupuesto} €.';
-     texto;
+    let texto= `Tu presupuesto actual es de ${presupuesto} €`;
+     return texto;
 }
 
 function CrearGasto(descripcion,valor) {
@@ -29,10 +30,10 @@ function CrearGasto(descripcion,valor) {
         this.valor= (valor>=0) ? valor : 0 ;
 
         this.mostrarGasto = function(){
-            let gasto = ("Gasto correspondiente  a ${this.descripcion} con un valor de ${this.valor}€.");
+            let gasto = (`Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`);
             return gasto;
         }
-
+        
         this.actualizarDescripcion = function(nuevaDescripcion){
             this.descripcion=nuevaDescripcion;
         }
