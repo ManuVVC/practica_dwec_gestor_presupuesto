@@ -7,27 +7,31 @@ let presupuesto = 0;
 function actualizarPresupuesto(valor) {
     // TODO
         if(isNaN(valor)){
+        console.log("El valor indicado no es un número.");
         return  -1;
-        console.log("El valor indicado no es un número.")
     } else if (valor<0) {
+        console.log("El valor ha de ser mayor que 0.");
         return  -1;
-        console.log("El valor ha de ser mayor que 0.")
     } 
     presupuesto = valor;
-
     return presupuesto;
 }
 
 function mostrarPresupuesto() {
     // TODO
     let texto= 'Tu presupuesto actual es de ${presupuesto} €.';
-    return texto;
+     texto;
 }
 
 function CrearGasto(descripcion,valor) {
     // TODO
         this.descripcion=descripcion;
         this.valor= (valor>=0) ? valor : 0 ;
+
+        this.mostrarGasto = function(){
+            let gasto = ("Gasto correspondiente  a ${this.descripcion} con un valor de ${this.valor}€.");
+            return gasto;
+        }
 }
 
 // NO MODIFICAR A PARTIR DE AQUÍ: exportación de funciones y objetos creados para poder ejecutar los tests.
