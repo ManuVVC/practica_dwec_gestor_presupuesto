@@ -34,10 +34,21 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
         this.etiquetas = (etiquetas === null) ?  [] : etiquetas;
 
         this.mostrarGasto = function(){
-            let gasto = (`Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`);
-            return gasto;
+            let mensaje = (`Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €`);
+            return mensaje;
         }
         
+        this.mostrarGastoCompleto = function(){
+            let fecha = new Date(this.fecha);
+            let mensaje = (`Gasto correspondiente a ${this.descripcion} con valor ${this.valor} €.\n`);
+            mensaje += (`Fecha: ${fecha.toLocaleString()}\n`);
+            mensaje+= (`Etiquetas:\n`);
+            for (let etiqueta of this.etiquetas){
+                mensaje += (`- ${etiqueta}\n`);
+            }
+            return mensaje;
+        }
+
         this.actualizarDescripcion = function(nuevaDescripcion){
             this.descripcion=nuevaDescripcion;
         }
@@ -46,6 +57,29 @@ function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
            if (nuevoValor>=0) {
              this.valor = nuevoValor;
            }
+        }
+
+        this.actualizarFecha = function(fecha){
+            if (!isNaN(Date.parse(fecha))){
+                this.fecha= Date.parse(fecha)
+            } 
+        }
+
+        this.anyadirEtiquetas = function(...nuevasEtiquetas){
+            for (let etiqueta of nuevasEtiquetas){
+                if(!this.etiquetas.includes(etiqueta)){
+                    this.etiquetas.push(etiqueta);
+                }
+            }
+        }
+
+        this.borrarEtiquetas = function(...etiquetasBorrar){
+            for (let etiqueta of etiquetasBorrar){
+                let id = this.etiquetas.indexOf(etiqueta)
+                if (id>=0){
+                    this.etiquetas.splice(id,1);
+                }
+            }
         }
 }
 
