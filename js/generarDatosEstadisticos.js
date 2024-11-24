@@ -37,3 +37,20 @@ parametro3.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gasto
 let parametro4 = gestionPresupuesto.filtrarGastos({valorMaximo: 50, etiquetas: ["comida","transporte"] });
 parametro4.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-filtrado-4", gasto));
 
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb(
+    "agrupacion-dia",
+    gestionPresupuesto.agruparGastos("dia"),
+    "día"
+);
+
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb(
+    "agrupacion-mes",
+    gestionPresupuesto.agruparGastos("mes"),
+    "mes"
+);
+
+gestionPresupuestoWeb.mostrarGastosAgrupadosWeb(
+    "agrupacion-anyo",
+    gestionPresupuesto.agruparGastos("anyo"),
+    "año"
+);
