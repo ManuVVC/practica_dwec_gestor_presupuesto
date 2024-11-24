@@ -17,6 +17,23 @@ let gastos = [
 /*gestionPresupuesto.anyadirGastos(gastos);*/
 gastos.forEach(gasto => gestionPresupuesto.anyadirGasto(gasto));
 
-
 gestionPresupuestoWeb.mostrarDatoEnId("gastos-totales", gestionPresupuesto.calcularTotalGastos());
 gestionPresupuestoWeb.mostrarDatoEnId("balance-total", gestionPresupuesto.calcularBalance());
+
+gestionPresupuesto.listarGastos().forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-completos", gasto));
+
+let parametro = gestionPresupuesto.filtrarGastos({
+    fechaDesde: "2021-09-01",
+    fechaHasta: "2021-09-30",
+});
+parametro.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-filtrado-1", gasto));
+
+let parametro2 = gestionPresupuesto.filtrarGastos({valorMinimo: 50});
+parametro2.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-filtrado-2", gasto));
+
+let parametro3 = gestionPresupuesto.filtrarGastos({valorMinimo: 200, etiquetas: ["seguros"] });
+parametro3.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-filtrado-3", gasto));
+
+let parametro4 = gestionPresupuesto.filtrarGastos({valorMaximo: 50, etiquetas: ["comida","transporte"] });
+parametro4.forEach(gasto => gestionPresupuestoWeb.mostrarGastoWeb("listado-gastos-filtrado-4", gasto));
+
