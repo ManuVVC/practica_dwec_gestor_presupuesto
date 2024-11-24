@@ -184,7 +184,7 @@ function agruparGastos(periodo,etiquetas,fechaDesde,fechaHasta){
 
     if (!acc[periodoAgrupacion]){
         acc[periodoAgrupacion] = 0;
-    }else {acc[periodoAgrupacion]=acc[periodoAgrupacion]}
+    }
 
     acc[periodoAgrupacion] = acc[periodoAgrupacion] + gasto.valor;
     return acc;
