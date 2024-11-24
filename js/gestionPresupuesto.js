@@ -28,8 +28,9 @@ function mostrarPresupuesto() {
 
 function CrearGasto(descripcion, valor, fecha, ...etiquetas) {
     // TODO
-        this.descripcion=descripcion;
-        this.valor= (valor>=0) ? valor : 0 ;
+    
+        this.descripcion = descripcion;
+        this.valor = (valor>=0) ? valor : 0 ;
         this.fecha = (fecha) ? Date.parse(fecha) : Date.now();
         this.etiquetas = (etiquetas === null) ?  [] : etiquetas;
 

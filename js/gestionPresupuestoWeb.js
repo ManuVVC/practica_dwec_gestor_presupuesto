@@ -1,6 +1,6 @@
 'use strict';
 
-export {mostrarDatoEnId, mostrarGastoWeb, mostrarGastosAGrupados};
+export {mostrarDatoEnId, mostrarGastoWeb, mostrarGastosAgrupadosWeb};
 
 function mostrarDatoEnId(idElemento, valor) {
     let elemento = document.getElementById(idElemento);
@@ -26,7 +26,7 @@ function mostrarGastoWeb(idElemento,gasto) {
     }
 }
 
-function mostrarGastosAGrupados(idElemento, periodo, agrup) {
+function mostrarGastosAgrupadosWeb(idElemento, periodo, agrup) {
     let elemento = document.getElementById(idElemento);
 
     if (elemento) {
