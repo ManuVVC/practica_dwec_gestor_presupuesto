@@ -26,23 +26,23 @@ function mostrarGastoWeb(idElemento,gasto) {
     }
 }
 
-function mostrarGastosAgrupadosWeb(idElemento, periodo, agrup) {
+function mostrarGastosAgrupadosWeb(idElemento, agrup, periodo) {
     let elemento = document.getElementById(idElemento);
 
     if (elemento) {
         let divAgrupacion = document.createElement("div");
         divAgrupacion.className = "agrupacion";
 
-        let titulo = document.createElement("h1");
+        let titulo = document.createElement("h3");
         titulo.textContent = `Gastos agrupados por ${periodo}`;
         divAgrupacion.appendChild(titulo);
 
-        Object.entries(agrup).forEach(([acc, gasto]) => {
+        Object.entries(agrup).forEach(([clave, valor]) => {
             let divDato = document.createElement("div");
             divDato.className = "agrupacion-dato";
             divDato.innerHTML = `
-                <span class="agrupacion-dato-clave">${acc}</span>
-                <span class="agrupacion-dato-valor">${gasto}€</span>
+                <span class="agrupacion-dato-clave">${clave} -- </span>
+                <span class="agrupacion-dato-valor">${valor}€</span>
             `;
             divAgrupacion.appendChild(divDato);
         });
